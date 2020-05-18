@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "924141170525",
+    "firebase_url": "https://natural-5259a.firebaseio.com",
+    "project_id": "natural-5259a",
+    "storage_bucket": "natural-5259a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924141170525:android:62812b64ed7a7bc9d302b4",
+        "android_client_info": {
+          "package_name": "com.bokor.natural"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924141170525-2fgcs5anknhksf60jd793nnv6qh7nf2i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bokor.natural",
+            "certificate_hash": "2ecb3889cf82d1b29f014953dfedfd87c0d83b43"
+          }
+        },
+        {
+          "client_id": "924141170525-80pfa9kjiekdhadljr4f3s9d7et01ang.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFdtLSgkYnuZcxEQq5YuCLxXsGD62eJ8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924141170525-80pfa9kjiekdhadljr4f3s9d7et01ang.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
