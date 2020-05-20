@@ -5,12 +5,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Splashscreen">
-    <TextView
-        android:text="Splash Screen"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+    tools:context=".Activity.Splashscreen"
+    android:background="@color/colorPrimary"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NATURAL TOURISM"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:textColor="@color/white"/>
 
-    </TextView>
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Powered by Glamping Group"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 </RelativeLayout>

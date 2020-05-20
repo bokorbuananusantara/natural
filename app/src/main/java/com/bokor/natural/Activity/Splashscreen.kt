@@ -1,10 +1,11 @@
-package com.bokor.natural
+package com.bokor.natural.Activity
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.bokor.natural.R
 
 class Splashscreen : AppCompatActivity() {
     lateinit var handler: Handler
@@ -20,6 +21,6 @@ class Splashscreen : AppCompatActivity() {
             intent = Intent(this@Splashscreen, Weelcome::class.java)
             startActivity(intent)
             this@Splashscreen.finish()
-        }, 5000)
+        }, 2000)
     }
 }

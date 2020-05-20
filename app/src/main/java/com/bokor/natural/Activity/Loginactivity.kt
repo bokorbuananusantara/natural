@@ -1,10 +1,11 @@
-package com.bokor.natural
+package com.bokor.natural.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.bokor.natural.R
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_loginactivity.*
 import java.util.concurrent.TimeUnit
 
 class Loginactivity : AppCompatActivity() {
+
     val  mAuth = FirebaseAuth.getInstance()
     private lateinit var verificationId : String
 
@@ -45,7 +47,7 @@ class Loginactivity : AppCompatActivity() {
                         ) {
                             super.onCodeSent(p0, p1)
                             verificationId = p0
-                            Toast.makeText(this@Loginactivity, "Kode telah dikirim",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@Loginactivity, "Kode telah dikirim", Toast.LENGTH_SHORT).show()
                             Intent(this@Loginactivity, MainActivity::class.java).apply {
                                 this.putExtra("verificationId", verificationId)
                                 startActivity(this)
@@ -54,6 +56,9 @@ class Loginactivity : AppCompatActivity() {
                     }
                 )
             }
+
+
+
         }
     }
 }

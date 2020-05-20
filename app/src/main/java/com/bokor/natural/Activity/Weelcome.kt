@@ -1,8 +1,9 @@
-package com.bokor.natural
+package com.bokor.natural.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bokor.natural.R
 import kotlinx.android.synthetic.main.activity_weelcome.*
 
 class Weelcome : AppCompatActivity() {

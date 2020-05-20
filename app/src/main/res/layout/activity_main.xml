@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
 
     <FrameLayout
         android:id="@+id/koordinator_layout"
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/navigation"
-            app:itemIconTint="@color/hitam"
+            app:itemIconTint="@color/colorAccent"
             app:itemTextColor="@color/hitam"
             android:background="@color/white"
             app:labelVisibilityMode="labeled">

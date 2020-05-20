@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.Loginactivity">
+    tools:context=".Activity.Verifikasi">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/icon_login"
+                    android:src="@drawable/icon_veripikasi"
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"/>
             </RelativeLayout>
@@ -33,7 +33,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Silahkan Login dengan No Hp Mu"
+                    android:text="Silahkan Masukan Kode Verifikasi"
                     android:textSize="20dp"
                     android:layout_marginTop="20dp"
                     android:textStyle="bold"
@@ -47,32 +47,27 @@
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/kodenegara"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:text="+62"
-                    android:gravity="center"
-                    android:textSize="16dp">
-                </TextView>
+
                 <EditText
-                    android:id="@+id/nohp"
+                    android:id="@+id/kodeverifikasi"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:hint="Masukan No HP"
+                    android:hint="MASUKAN KODE VERIFIKASI"
+                    android:gravity="center"
                     android:textSize="16dp">
                 </EditText>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
     <Button
-        android:id="@+id/login"
+        android:id="@+id/btn_verifikasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-2dp"
         android:background="@color/colorAccent"
-        android:text="LOGIN"
+        android:text="VERIFIKASI"
         android:textSize="16dp"
         android:textColor="@color/white" />
 </RelativeLayout>

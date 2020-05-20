@@ -6,13 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Weelcome">
+    tools:context=".Activity.Weelcome"
+    android:background="@color/white">
 
     <Button
     android:id="@+id/btnlogin"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="login"
+    android:background="@color/colorAccent"
     >
     </Button>
 
@@ -20,7 +22,6 @@
         android:id="@+id/btnregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="register"
-        >
-    </Button>
+        android:background="@color/colorAccent"
+        android:text="register"></Button>
 </LinearLayout>
