@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addwisata.addmain">
+
+    <EditText
+    android:id="@+id/nama_wisata"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Nama Wisata"
+    >
+    </EditText>
+
+    <EditText
+        android:id="@+id/deskripsi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Deskripsi"
+        >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alamat"
+        >
+    </EditText>
+
+    <ImageView
+        android:src="@drawable/map"
+        android:id="@+id/map"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp">
+    </ImageView>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/btn_kamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kamera">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_galery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Galery">
+
+    </Button>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_poto"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/no_image"
+        >
+    </ImageView>
+    <Button
+        android:id="@+id/btn_simpan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simpan">
+    </Button>
+</LinearLayout>

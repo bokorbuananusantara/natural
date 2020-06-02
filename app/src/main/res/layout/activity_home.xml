@@ -7,12 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".Navigation.Home">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home">
 
-    </TextView>
 
     <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -68,6 +63,8 @@
             </TextView>
 
         </LinearLayout>
+
+
 
     </androidx.cardview.widget.CardView>
 </RelativeLayout>
