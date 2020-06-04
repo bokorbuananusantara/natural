@@ -4,12 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.bokor.natural.R
+import com.bokor.natural.network.Networkmodule
 import com.bumptech.glide.Glide
 import com.vanillaplacepicker.presentation.builder.VanillaPlacePicker
 import com.vanillaplacepicker.utils.MapType
@@ -19,6 +19,7 @@ import okhttp3.Call
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.Response
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 
 class addmain : CameraFilePickerBaseActivity() {
 
@@ -29,6 +30,7 @@ class addmain : CameraFilePickerBaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addmain)
 
+        //button camera
         btn_kamera.setOnClickListener {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
                 launchCamera()
@@ -39,11 +41,13 @@ class addmain : CameraFilePickerBaseActivity() {
             }
         }
 
+        //button galery
         btn_galery.setOnClickListener {
             launchFilePicker()
         }
 
 
+        //image map saat diklik akan diarahkan ke maps placepicker
         map.setOnClickListener{
             val placePicker = VanillaPlacePicker.Builder(this@addmain)
                 .with(PickerType.MAP_WITH_AUTO_COMPLETE)
@@ -53,55 +57,58 @@ class addmain : CameraFilePickerBaseActivity() {
             startActivityForResult(placePicker, 1052)
         }
 
+        //button simpan untuk nyimpan data ke server
         btn_simpan.setOnClickListener {
             if(flagUpload){
-//                doUpload()
+                //memanggil proses upload agar data bisa disimpan ke server
+                doUpload()
             }else{
                 Toast.makeText(this@addmain, "Silahkan pilih file ! ", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-//    private fun doUpload() {
-//        //buat inputan untuk file dengan mime type yang diterima adalah file image
-//        val files = RequestBody.create("image/*".toMediaTypeOrNull(), imageViewToByte(imagePreview, 40))
-//
-//        //membuat body untuk input type file
-//        val imageInput = MultipartBody.Part.createFormData("files", "${System.nanoTime()}.jpg", files)
-//
-//        //membuat input type text dengan value dari judul.text.toString()
-//        val namawisata = RequestBody.create("text/plain".toMediaTypeOrNull(), namawisata.text.toString())
-//
-//        val deskripsi = RequestBody.create("text/plain".toMediaTypeOrNull(), deskripsi.text.toString())
-//
-//        val alamat = RequestBody.create("text/plain".toMediaTypeOrNull(), alamat.text.toString())
-//
-//        val lat = RequestBody.create("text/plain".toMediaTypeOrNull(), latitude.toString())
-//        val lon = RequestBody.create("text/plain".toMediaTypeOrNull(), longitude.toString())
-//        val notelp = RequestBody.create("text/plain".toMediaTypeOrNull(), "085761990862")
-//
-//        NetworkModule.getService().doUpload(
-//            foto = imageInput,
-//            namawisata = namawisata,
-//            deskripsi = deskripsi,
-//            alamat = alamat,
-//            lat = lat,
-//            lon = lon,
-//            notelp = notelp
-//        ).enqueue(object : retrofit2.Callback<ResponseUpload>{
-//            override fun onFailure(call: Call<ResponseUpload>, t: Throwable) {
-//                Toast.makeText(this@addmain,"Upload Gagal !", Toast.LENGTH_SHORT).show()
-//            }
-//
-//            override fun onResponse(
-//                call: Call<ResponseUpload>,
-//                response: Response<ResponseUpload>
-//            ) {
-//                Log.d("onVerficationCompleted", response.errorBody().toString())
-//                Toast.makeText(this@addmain,"Upload Berhasil !", Toast.LENGTH_SHORT).show()
-//            }
-//        })
-//    }
+    //melakukan proses upload ke server "doUpload()"
+    private fun doUpload() {
+        //buat inputan untuk file dengan mime type yang diterima adalah file image
+        val files = RequestBody.create("image/*".toMediaTypeOrNull(), imageViewToByte(image_poto, 40))
+
+        //membuat body untuk input type file
+        val imageInput = MultipartBody.Part.createFormData("files", "${System.nanoTime()}.jpg", files)
+
+        //membuat input type text dengan value dari judul.text.toString()
+        val namawisata = RequestBody.create("text/plain".toMediaTypeOrNull(), nama_wisata.text.toString())
+
+        val deskripsi = RequestBody.create("text/plain".toMediaTypeOrNull(), deskripsi.text.toString())
+
+        val alamat = RequestBody.create("text/plain".toMediaTypeOrNull(), alamat.text.toString())
+
+        val lat = RequestBody.create("text/plain".toMediaTypeOrNull(), latitude.toString())
+        val lon = RequestBody.create("text/plain".toMediaTypeOrNull(), longitude.toString())
+        val notelp = RequestBody.create("text/plain".toMediaTypeOrNull(), "085761990862")
+
+        Networkmodule.getService().doUpload(
+            foto = imageInput,
+            namawisata = namawisata,
+            deskripsi = deskripsi,
+            alamat = alamat,
+            lat = lat,
+            lon = lon,
+            notelp = notelp
+        ).enqueue(object : retrofit2.Callback<ResponseUpload>{
+            override fun onFailure(call: retrofit2.Call<ResponseUpload>, t: Throwable) {
+               Toast.makeText(this@addmain, "Upload Gagal !", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(
+                call: retrofit2.Call<ResponseUpload>,
+                response: retrofit2.Response<ResponseUpload>
+            ) {
+                Log.d("onVerficationCompleted", response.errorBody().toString())
+                Toast.makeText(this@addmain,"Upload Berhasil !", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -114,7 +121,7 @@ class addmain : CameraFilePickerBaseActivity() {
             previewImage(image_poto)
         }
 
-        //placepicker
+        //placepicker--> untuk nge-set lokasi dimana kita saat ini
         if (resultCode == Activity.RESULT_OK && data != null) {
             when (requestCode) {
                 1052 -> {
@@ -127,6 +134,7 @@ class addmain : CameraFilePickerBaseActivity() {
         }
     }
 
+    //buat nge-set maps ke ImageView yang disediakan di addmain_activity
     private fun setToImageView(latitude: Double?, longitude: Double?) {
         val key = getString(R.string.google_key)
         val imageMapsStatic = "https://maps.googleapis.com/maps/api/" +

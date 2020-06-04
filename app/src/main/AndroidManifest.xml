@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.bokor.natural">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -18,29 +17,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".addwisata.addmain">
+        <activity android:name=".video.ExoVideoPlayer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".addwisata.addmain"></activity>
         <activity android:name=".Activity.Verifikasi" />
         <activity android:name=".Navigation.Akun" />
         <activity android:name=".Navigation.Inbox" />
         <activity android:name=".Navigation.Pesanan" />
         <activity android:name=".Navigation.Home" />
-        <activity android:name=".Activity.Register" />
+        <activity android:name=".Activity.Register">
+
+        </activity>
         <activity android:name=".Activity.Loginactivity" />
         <activity
             android:name=".Activity.Weelcome"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Activity.Splashscreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".Activity.MainActivity">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Activity.MainActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -55,7 +55,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-
     </application>
 
 </manifest>

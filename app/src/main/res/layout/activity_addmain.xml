@@ -8,6 +8,9 @@
     android:layout_height="match_parent"
     tools:context=".addwisata.addmain">
 
+
+
+
     <EditText
     android:id="@+id/nama_wisata"
     android:layout_width="match_parent"
